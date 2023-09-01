@@ -4,7 +4,7 @@ const personajesJugables = personajes.data.filter( personaje => personaje.isPlay
 
 const personajesNuevo = personajesJugables.map( personaje => {
     let aux = {}
-    aux.id = personaje.uuid
+    aux.id = personaje.uuid 
     aux.name = personaje.displayName
     aux.description = personaje.description
     aux.image = personaje.displayIconSmall
@@ -30,5 +30,3 @@ const cards = personajesNuevo.reduce( (acc, act) => {
 const contenedor = document.getElementById( 'contenedor' )
 
 contenedor.innerHTML = cards
-
-{/* <a href="./details.html?id=${act.id}" class="btn btn-primary">Go somewhere</a> */}

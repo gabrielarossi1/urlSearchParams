@@ -4,7 +4,7 @@ const personajesJugables = personajes.data.filter( personaje => personaje.isPlay
 // console.log(personajesJugables)
 
 const personajeNuevo = personajesJugables.map( personaje => {
-    let aux = {} //creo un objeto, que lo voy a llenar con las propiedades de abajo
+    let aux = {} 
     aux.name = personaje.displayName
     aux.description = personaje.description
     aux.fullImage = personaje.fullPortrait,
@@ -15,24 +15,23 @@ const personajeNuevo = personajesJugables.map( personaje => {
     return aux;
 })
 
-console.log(personajeNuevo);
+// console.log(personajeNuevo);
 
-
+//Primero hacer esto
 const queryString = document.location.search
 console.log(queryString)
 const params = new URLSearchParams(queryString)
 console.log(params)
-const id = params.get("id") //ese id es el que tenemos en playground
+const id = params.get("id") 
 console.log(id)
-
+//
 
 const personaje = personajeNuevo.find(personaje => personaje._id === id )
-
 console.log(personaje);
 
 const containerCards = document.getElementById("containerCards")
 
-containerCards.innerHTML = containerCards.innerHTML = `
+containerCards.innerHTML = `
 <div class="card mb-3 bg-danger" style="min-width: 540px;">
 <div class="row g-0">
     <div class="col-md-4">
