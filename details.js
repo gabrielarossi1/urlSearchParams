@@ -1,15 +1,15 @@
 const personajesJugables = personajes.data.filter( personaje => personaje.isPlayableCharacter )
 
-console.log(location)
+// console.log(location)
+// console.log(personajesJugables)
 
 const personajeNuevo = personajesJugables.map( personaje => {
-    let aux = {}
+    let aux = {} //creo un objeto, que lo voy a llenar con las propiedades de abajo
     aux.name = personaje.displayName
     aux.description = personaje.description
-    aux.image = personaje.displayIconSmall
-    aux.smallImage = personaje.killfeedPortrait,
+    aux.fullImage = personaje.fullPortrait,
     aux.background = personaje.background,
-    aux.role = personaje.role.displayName
+    aux.role = personaje.role.displayName,
     aux._id = personaje.uuid
 
     return aux;
@@ -19,6 +19,7 @@ console.log(personajeNuevo);
 
 
 const queryString = document.location.search
+console.log(queryString)
 const params = new URLSearchParams(queryString)
 console.log(params)
 const id = params.get("id") //ese id es el que tenemos en playground
@@ -37,13 +38,15 @@ containerCards.innerHTML = containerCards.innerHTML = `
     <div class="col-md-4">
     <img src="${personaje.background}" class="img-fluid rounded-start" alt="...">
     </div>
-    <div class="col-md-8 d-flex justify-content-center align-items-center">
+    <div class="col-md-4 d-flex justify-content-center align-items-center">
         <div class="card-body">
             <h1 class="card-title">${personaje.name}</h1>
             <h5 class="card-subtitle">Rol: ${personaje.role}</h5>
             <p class="card-text">${personaje.description}</p>
-            <img src="${personaje.smallImage}" class="img-fluid rounded-start" alt="...">
             </div>
+    </div>
+    <div class="col-md-4">
+    <img src="${personaje.fullImage}" class="img-fluid rounded-start" alt="...">
     </div>
 </div>
 </div>

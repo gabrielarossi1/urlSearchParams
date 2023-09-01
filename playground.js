@@ -1,5 +1,5 @@
 console.log( personajes )
-
+console.log([document])
 const personajesJugables = personajes.data.filter( personaje => personaje.isPlayableCharacter )
 
 const personajesNuevo = personajesJugables.map( personaje => {
